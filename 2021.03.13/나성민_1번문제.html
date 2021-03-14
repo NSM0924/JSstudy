@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <hr>
+    숫자(1~9) : <input type="text" id='num'>
+    <input type="button" value="구구단 출력" onclick="numBtn()">
+    <br><br>
+    <div id="result"></div>
+    <script>
+        function numBtn()  {
+            let result = document.getElementById("result");
+            result.innerHTML = "";
+            let inputNum = document.getElementById("num").value;
+            if(inputNum>0 && inputNum<10){
+                for(let i = 1; i<10; i++){
+                    // result.append(inputNum+" * "+i+" = "+(inputNum*i));
+                    result.innerHTML += inputNum+" * "+i+" = "+(inputNum*i);
+                    result.innerHTML += '<br>';
+                }
+                
+            }else{
+                result.innerHTML = "잘못된 데이터 입력입니다.";
+            }
+            // inputNum = "";
+            document.getElementById("num").value = "";
+        }
+    </script>
+</body>
+</html>

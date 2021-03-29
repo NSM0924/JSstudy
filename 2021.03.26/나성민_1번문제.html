@@ -7,15 +7,13 @@
     <title>Document</title>
     <style>
         body{
-            padding: 0;
-            margin: 0;
             background-color: black;
         }
         h1{
             color: white;
         }
         #box{
-            position: relative;
+            /* position: relative; */
             width: 100px;
             height: 100px;
             background-color: red;
@@ -27,18 +25,27 @@
     <div id="box"></div>
 
     <script>
-        document.addEventListener("mousemove", function(event){
-            let text = document.getElementById("text");
-            let box = document.getElementById("box");
+        const text = document.getElementById("text");
+        const box = document.getElementById("box");
+        
+        let x = 0;
+        let y = 0;
 
-            let x = event.clientX;
-            let y = event.clientY;
+        window.addEventListener("mousemove", function(event){
+            x = event.clientX;
+            y = event.clientY;
+        })
 
+        function move(){
             text.textContent = "x: "+x+" y: " + y;
 
-            box.style.left = x+"px";
-            box.style.top = y+"px";
-        })
+            // box.style.left = x+"px";
+            // box.style.top = y+"px";
+            box.style.transform = `translate(${x}px, ${y}px)`;
+
+            requestAnimationFrame(move)
+        }
+        move()
     </script>
 </body>
 </html>

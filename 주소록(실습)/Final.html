@@ -1,0 +1,27 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>주소록</title>
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Heebo|Noto+Sans+KR" rel="stylesheet">
+
+    <!-- user style -->
+    <link rel="stylesheet" href="common.css">
+</head>
+
+<body>
+    <h2>주소록 예제</h2>
+    <form>
+        이름: <input type="text" name="name"><br>
+        전화번호: <input type="text" name="tel"><br><br>
+        <input type=button value="저장" onclick='addAddr()'>
+        <input type=button value="리셋" onclick='resetAddr()'>
+        <input type=button value="배경변경" onclick='changeBg()'>
+    </form>
+    <hr>
+    <h3>주소록 목록</h3>
+    <ul id="addrlist"></ul>
+    <script src="common.js"></script>
+</body>
+
+</html>

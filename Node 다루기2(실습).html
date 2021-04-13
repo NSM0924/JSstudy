@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드다루기2</title>
+</head>
+
+<body>
+    <ul id="target">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li id="removeTest">JavaScript</li>
+    </ul>
+    <input type="button" onclick="callAppendChild();" value="appendChild()" />
+    <input type="button" onclick="callInsertBefore();" value="insertBefore()" />
+    <input type="button" onclick="callRemoveChild();" value="removeChild()" />
+    <input type="button" onclick="callReplaceChild();" value="replaceChild()" />
+    <input type="button" onclick="test();" value="firstChild 보기()" />
+</body>
+<script>
+    let ul = document.getElementById("target");
+
+    function callAppendChild(){
+        let li = document.createElement("li");
+        li.textContent = "JavaScript";
+        ul.appendChild(li);
+    }
+
+    function callInsertBefore(){
+        let li = document.createElement("li");
+        li.textContent = "JQuery";
+        ul.insertBefore(li,ul.firstChild);
+    }
+
+    function callRemoveChild(){
+        ul.innerHTML = "";
+    }
+
+    function callReplaceChild(){
+        let a = document.createElement("a");
+        a.setAttribute("href", "https://opentutorials.org/course/1375");
+        a.textContent = "Web browser JavaScript";
+        ul.replaceChild(a,ul.firstChild);
+    }
+
+    function test(){
+        console.log(ul.firstChild.nodeName)
+    }
+</script>
+
+</html>

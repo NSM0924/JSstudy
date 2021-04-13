@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Element</title>
+<script type="text/javascript">
+	let div1;
+	let div2;
+	window.onload = function(){
+		div1 = document.getElementById("container");
+		div2 = document.getElementById("targetDiv");
+	}
+	function btnMove(btn){
+		let parent = btn.parentNode;
+		
+		if(parent.id=="container"){
+			parent.removeChild(btn);
+			div2.appendChild(btn);
+		}else{
+			parent.removeChild(btn);
+			div1.appendChild(btn);
+		}
+	}
+</script>
+</head>
+<body>
+	<div id="container" style="border: 5px solid black; height: 100px;">
+		<!-- 버튼 3개 생성 -->
+		<button onclick="btnMove(this)">1번</button>
+		<button onclick="btnMove(this)">2번</button>
+		<button onclick="btnMove(this)">3번</button>
+	</div>
+	<div id="targetDiv" style="border: 1px solid black; height: 100px;"></div>
+
+	
+</body>
+</html>

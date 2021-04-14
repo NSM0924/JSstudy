@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>스타일 객체</title>
+<style type="text/css">
+	div {border: 1px solid black; margin: 5px;}
+</style>
+</head>
+<body>
+	<div>
+		sample 1 글자를 클릭해 보세요.
+		<span style="color: red; cursor: pointer; display: inline;" onclick="action(this)">
+			여기</span>를 클릭하는 거에요.
+	</div>
+	<div>
+		sample 2 글자를 클릭해 보세요.
+		<span style="color: red; cursor: pointer; display: inline;" onclick="action(this)">
+			여기</span>를 클릭하는 거에요.
+	</div>
+
+	<script>
+		function action(span){
+			if(span.style.display == "inline"){
+				span.style.display = "block";
+			}else{
+				span.style.display = "inline";
+			}
+		}
+	</script>
+</body>
+</html>

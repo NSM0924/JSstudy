@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>html과의 연계 - innerHTML</title>
+</head>
+<body>
+    <!-- 1. HTML 태그에 등록하는 방법 -->
+	<button onclick="actionClick();">내용 바꾸기</button>
+
+	<!-- 2. addEventListener() 메소드 사용 -->
+	<button id=btn>내용 바꾸기 (addEventListener)</button>
+	<div id="content" style="border: 1px solid black; height: 100px;">
+		<p>오늘은 자바스크립트 방과후 수업이 있는 날 입니다.</p>
+	</div>
+    <script type="text/javascript">
+		function actionClick(){
+			let content = document.getElementById("content");
+			let contentValue = content.innerHTML
+			let userInput = prompt("입력하고 싶은 내용", contentValue);
+			content.innerHTML = userInput;
+		}
+		document.getElementById("btn").addEventListener("click", actionClick);
+    </script>
+</body>
+</html>

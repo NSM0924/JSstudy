@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        ul, li{
+            list-style: none;
+        }
+        .menuBox{
+            border-bottom: 2px solid black;
+        }
+        .menu{
+            display: flex;
+            justify-content: space-around;
+            margin: 0;
+        }
+        .menu li{
+            padding: 16px 10px;
+            cursor: pointer;
+        }
+        .menu li:hover{
+            background-color: gray;
+        }
+
+        .text{
+            padding: 0 30px;
+            display: none;
+        }
+
+        .pick{
+            background-color: rgb(180, 180, 180);
+        }
+        .pickText{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="menuBox">
+        <ul class="menu">
+            <li class="pick">Home</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+    </div>
+    <div class="text pickText">
+        <h1>Home</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Dolorum, error recusandae molestias animi odit vel facilis minus
+            doloribus. Voluptatem voluptatum accusamus natus aperiam fugiat culpa,
+            reiciendis magni facilis enim repellendus!</p>
+    </div>
+
+    <div class="text">
+        <h1>About</h1>
+        <p>화성 갈끄니까아아아아아아아아아아아아아아아아아ㅏ아아아아ㅏ아아아아ㅏ아아아
+            아아아아아ㅏ아아아ㅏ아아아ㅏ아아아아아아아아ㅏ아아아아아ㅏ아아아아ㅏ아아ㅏ앙
+            ㅏㅓ아아아아ㅏ아아아아아ㅏ아아아아아아ㅏ아아아ㅏ아아아아아ㅏ아아아ㅏ아아아
+        </p>
+    </div>
+
+    <div class="text">
+        <h1>Contact</h1>
+        <p>먼아ㅣㄹ ㄴㅇㅁ호ㅓㅑㅕㅏㄹ호ㅑㅐㅁ우ㅗ퍼ㅏㅣㅏㅇㄴ머ㅏ ㅗㅎㅍㅁㄷㅇ휴너ㅏㅇㄹ호 ㅍ
+            ㄹ헝ㄴ마ㅗ ㅐㅑㅁㄴ오ㅓ라 ㄴㅁㅇ라ㅗㄴㅇ머ㅏ 론ㅁ알 ㄴㅁ어ㅏㄴㅇ미ㅏㄹ ㅓㄴㅁ이ㅏ 런
+            ㅏㄹㄴㅇ머ㅗ ㅣㅏ로ㅓㄴㅇ몰 ㅓㅏㅣㄴㅁㅇ 뢰ㅏㄴㅇ머ㅗ리ㅏㄴㅇ멀 ㄴㅇㅁ러ㅣ
+        </p>
+    </div>
+
+    <script>
+        const home = document.getElementsByTagName("li")[0];
+        const homeText = document.getElementsByClassName("text")[0];
+        
+        const about = document.getElementsByTagName("li")[1];
+        const aboutText = document.getElementsByClassName("text")[1];
+
+        const contact = document.getElementsByTagName("li")[2];
+        const contactText = document.getElementsByClassName("text")[2];
+
+        home.addEventListener('click', function(){
+            about.classList.remove("pick")
+            contact.classList.remove("pick")
+            home.classList.add("pick")
+
+            aboutText.classList.remove("pickText")
+            contactText.classList.remove("pickText")
+            homeText.classList.add("pickText")
+        })
+
+        about.addEventListener('click', function(){
+            home.classList.remove("pick")
+            contact.classList.remove("pick")
+            about.classList.add("pick")
+
+            homeText.classList.remove("pickText")
+            contactText.classList.remove("pickText")
+            aboutText.classList.add("pickText")
+        })
+
+        contact.addEventListener('click', function(){
+            home.classList.remove("pick")
+            about.classList.remove("pick")
+            contact.classList.add("pick")
+
+            homeText.classList.remove("pickText")
+            aboutText.classList.remove("pickText")
+            contactText.classList.add("pickText")
+        })
+    </script>
+</body>
+</html>

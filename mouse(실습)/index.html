@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>mouseOver</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/cursor.css">
+    <script src="./js/cursor.js"></script>
+    <style>
+      html{
+        height: 100%;
+      }
+      body {
+        background: #4197c9;
+        overflow: hidden;
+        display: flex;
+        height: 100%;
+      }
+      .cursorItem{
+        pointer-events: none;
+      }
+      .circle{
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        background-color: rgba(183, 0, 255, 0.507);
+        border-radius: 50%;
+        transition: 0.4s;
+      }
+
+      .content{
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+      }
+      .gate-box{
+        border: 1px solid white;
+      }
+      .top{
+        padding: 0 50px;
+        color: white;
+      }
+      .bottom{
+        border-top: 1px solid white;
+      }
+      .inner{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        text-align: center;
+      }
+      a{
+        color: white;
+        padding: 10px 0;
+        text-decoration: none;
+        transition: 0.4s;
+      }
+
+      .text{
+        text-align: center;
+        color: white;
+        background-color: rgb(95 158 160);
+        border: 1px solid white;
+        padding: 20px 100px;
+      }
+    </style>
+    <script>
+      let btn_yes;
+      let btn_no;
+      let cursorItem;
+      let circle;
+      let x=0, y = 0;
+      let mx=0, my = 0;
+          
+      window.onload = function(){
+          btn_yes = document.querySelector(".yes");
+          btn_no = document.querySelector(".no");
+      
+          gateBox = document.querySelector(".gate-box");
+          cursorItem = document.querySelector(".cursorItem");
+          circle = cursorItem.querySelector(".circle");
+          container1 = document.querySelector(".container1");
+          container2 = document.querySelector(".container2");
+          clickY = document.querySelector(".clickY");    
+          clickN = document.querySelector(".clickN");    
+          
+          
+          //네 버튼 이벤트
+      
+          btn_yes.addEventListener("click", function(e){
+              gateBox.style.display = "none";
+              container1.style.display = "block";
+              clickY.style.display = "block";
+          });
+        
+          btn_yes.addEventListener("mouseover", function(e){
+              circle.style.transform = "scale(.3)";
+              btn_yes.style.backgroundColor = "white"
+              btn_yes.style.color = "#4197c9"
+          });
+          btn_yes.addEventListener("mouseout", function(e){
+              circle.style.transform = "scale(1)";
+              btn_yes.style.backgroundColor = ""
+              btn_yes.style.color = ""
+          });
+        
+          //아니오 버튼 이벤트
+          btn_no.addEventListener("click", function(e){
+              gateBox.style.display = "none";
+              container2.style.display = "block";
+              clickN.style.display = "block";
+          });
+        
+          btn_no.addEventListener("mouseover", function(e){
+              circle.style.transform = "scale(.3)";
+              btn_no.style.backgroundColor = "white"
+              btn_no.style.color = "#4197c9"
+          });
+          btn_no.addEventListener("mouseout", function(e){
+              circle.style.transform = "scale(1)";
+              btn_no.style.backgroundColor = ""
+              btn_no.style.color = ""
+          });
+        
+          window.addEventListener("mousemove", function(e){
+              x = e.clientX;
+              y = e.clientY;
+              cursorItem.style.transform = "translate("+ (x-75) +"px, "+ (y-75) + "px )";
+          });
+          
+          loop();
+      }
+      
+      function loop(){
+          mx += (x - mx ) * .09;
+          my += (y - my ) * .09; 
+          cursorItem.style.transform = "translate("+ (mx-75) +"px, "+ (my-75) + "px )";
+      
+          requestAnimationFrame(loop);
+      }
+    </script>
+</head>
+<body>
+    <div class="cursorItem">
+        <span class="circle"></span>
+    </div>
+    <div class="content">
+      <div class="gate-box">
+        <div class="top">
+          <p>마스크를 잘쓰고 있나요?</p>		
+        </div>
+        <div class="bottom">
+          <div class="inner">
+            <a href="#" style="border-right: 1px solid white;" class="yes active">네</a> 
+            <a href="#" class="no">아니요</a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="container1 text" style="display: none;">
+        <div class="clickY">방역수칙을 잘 지키고있네요~ </br>잘했어요. 칭찬합니다!</div>      
+      </div>
+      <div class="container2 text" style="display: none;">
+        <div class="clickN">왜 안쓰시죠? </br>당장 착용하세요!</div> 
+      </div>
+    </div>
+</body>
+</html>

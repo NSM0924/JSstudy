@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        .front{
+            background-color: rgb(45 48 56);
+            width: 388px;
+            height: 244px;
+            position: absolute;
+            margin-top: 22px;
+            border-radius: 19px;
+            transition: 1s;
+            transform: rotateY( 0deg );
+        }
+        .magnetic{
+            position: absolute;
+            width: 120px;
+            top: 70px;
+            right: 0;
+        }
+        .logo{
+            position: absolute;
+            width: 200px;
+            top: -60px;
+            left: 16px;
+        }
+        .text{
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-weight: bold;
+            color: gray;
+        }
+        .back{
+            z-index: -1;
+            transition: 1s;
+            transform: rotateY( 180deg );
+        }
+    </style>
+</head>
+<body>
+    <div class="front">
+        <img class="logo" src="https://seeklogo.net/wp-content/uploads/2019/11/bank-of-america-logo.png" alt="">
+        <img class="magnetic" src="https://usa.visa.com/dam/VCOM/regional/na/us/pay-with-visa/images/card-chip-800x450.png" alt="">
+        <p class="text">SungMin Na
+            <br><span style="color: black;">05/02</span>
+        </p>
+    </div>
+    <img class="back" src="https://support.tradeapp.com/hc/article_attachments/360007169218/CC_back_EN.png" alt="">
+
+    <script>
+        let front = document.querySelector(".front");
+        let back = document.querySelector(".back");
+
+        front.addEventListener("click", function(){
+            front.style.transform = "rotateY(180deg)";
+            back.style.transform = "rotateY(0deg)";
+            back.style.zIndex = 0;
+        })
+
+        back.addEventListener("click", function(){
+            back.style.transform = "rotateY(180deg)";
+            front.style.transform = "rotateY(0deg)";
+            back.style.zIndex = -1;
+        })
+    </script>
+</body>
+</html>

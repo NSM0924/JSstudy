@@ -43,9 +43,9 @@
 <body>
     <div class="menuBox">
         <ul class="menu">
-            <li class="pick">Home</li>
-            <li>About</li>
-            <li>Contact</li>
+            <li class="pick" onclick="show(0)">Home</li>
+            <li onclick="show(1)">About</li>
+            <li onclick="show(2)">Contact</li>
         </ul>
     </div>
     <div class="text pickText">
@@ -73,44 +73,22 @@
     </div>
 
     <script>
-        const home = document.getElementsByTagName("li")[0];
-        const homeText = document.getElementsByClassName("text")[0];
-        
-        const about = document.getElementsByTagName("li")[1];
-        const aboutText = document.getElementsByClassName("text")[1];
+        let text = document.querySelectorAll(".text");
+        let btn = document.getElementsByTagName("li");
 
-        const contact = document.getElementsByTagName("li")[2];
-        const contactText = document.getElementsByClassName("text")[2];
+        function removePick() {
+            for (let i = 0; i < text.length; i++) {
+                btn[i].classList.remove("pick")
+                text[i].classList.remove("pickText")
+            }
+        }
 
-        home.addEventListener('click', function(){
-            about.classList.remove("pick")
-            contact.classList.remove("pick")
-            home.classList.add("pick")
+        function show(e) {
+            removePick()
+            btn[e].classList.add("pick")
+            text[e].classList.add("pickText")
+        }
 
-            aboutText.classList.remove("pickText")
-            contactText.classList.remove("pickText")
-            homeText.classList.add("pickText")
-        })
-
-        about.addEventListener('click', function(){
-            home.classList.remove("pick")
-            contact.classList.remove("pick")
-            about.classList.add("pick")
-
-            homeText.classList.remove("pickText")
-            contactText.classList.remove("pickText")
-            aboutText.classList.add("pickText")
-        })
-
-        contact.addEventListener('click', function(){
-            home.classList.remove("pick")
-            about.classList.remove("pick")
-            contact.classList.add("pick")
-
-            homeText.classList.remove("pickText")
-            aboutText.classList.remove("pickText")
-            contactText.classList.add("pickText")
-        })
     </script>
 </body>
 </html>
